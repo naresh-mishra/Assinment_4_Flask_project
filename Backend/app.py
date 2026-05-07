@@ -16,6 +16,10 @@ client = MongoClient(mongo_uri)
 db = client["todoDB"]
 collection = db["todos"]
 
+@app.route("/")
+def home():
+    return "Flask backend running successfully"
+
 @app.route("/submittodoitem", methods=["POST"])
 def submit_todo():
     data = request.get_json()
